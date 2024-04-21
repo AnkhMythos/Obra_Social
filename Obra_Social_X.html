@@ -1,0 +1,893 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Obra Social</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9e4e93b905.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/vnd.microsoft.icon" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        :root {
+            
+            --gray-light: #f0f0f0; /* Color de fondo */
+            --gray-dark: #333; /* Color de texto */
+            --icon-color: #000; /* Color de icono */
+            --inactive-border-color: #272323; /* Color de borde inactivo */
+            --active-bg-color: #cbedb6; /* Color de fondo activo */
+            --inactive-bg-color: #b9e89c; /* Color de fondo activo */
+            --active-text-color: #241e1e; /* Color de texto activo */
+            --active-border-color: #666; /* Color de borde activo */
+            --active-icon-color: #000; /* Color de icono activo */
+            --blue-primary: #007bff;
+            --blue-light: #67c5ed;
+            --gray-light: #f8f9fa;
+            --gray-dark: #1a1f23;
+            --green-dark: #11c02b;            
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color:transparent;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar{
+            background-color:transparent;
+            
+            color: var(--gray-dark);
+        }
+
+        footer {
+            background-color:transparent;
+            color:var(--blue-primary);
+        }
+
+        .btn-primary {
+            background-color:transparent;
+            border-color: var(--blue-light);
+            color:var(--active-text-color)
+        }
+
+        .jumbotron {
+            background-color:transparent;
+            color: var(--gray-dark);
+        }
+
+        section {
+            padding: 10px 0;
+        }
+
+        .card {
+            height: 100%;
+            /* Asegura que todas las tarjetas tengan la misma altura */
+        }
+
+        .card-img-top {
+            height: fit-content;
+            /* Altura fija para todas las imágenes */
+            object-fit: cover;
+            /* Asegura que la imagen cubra el espacio disponible, recortándose según sea necesario */
+            width: 100%;
+            /* Asegura que la imagen cubra todo el ancho de la tarjeta */
+        }
+
+        ul.icon-list li img {
+            width: 24px;
+            /* Cambia el tamaño según sea necesario */
+            height: 24px;
+            /* Cambia el tamaño según sea necesario */
+            margin-right: 10px;
+            /* Añade un margen a la derecha para separar la imagen del texto */
+        }
+
+        /* Aplicar estilos a cada ítem de la lista, excepto al último para evitar margen derecho excesivo */
+        li:not(:last-child) {
+            margin-right: 20px;
+            /* Ajusta la separación entre íconos */
+        }
+
+        /* Asegura que los íconos sean más grandes usando la clase de FontAwesome para xem el tamaño */
+        .ico {
+            font-size: 3em;
+        }
+
+        @media (max-width: 991px) {
+            #navbarNavDropdown {
+                position: absolute;
+                right: 10;
+                left: auto;
+                background-color:transparent;
+                /* Cambia esto según tu color de fondo */
+                border-radius: 0 0 0.25rem 0.25rem;
+                padding-left: 20px;
+                /* Añade padding en el lado izquierdo */
+            }
+
+            .navbar-nav {
+                align-items: flex-start;
+                
+                /* Asegúrate de que los elementos del menú no estén centrados */
+            }
+
+            .navbar-nav .nav-link {
+                padding-left: 30px;
+                /* Agrega espacio a la izquierda */
+                padding-right: 30px;
+                /* Agrega espacio a la derecha si es necesario */
+            }
+
+        }
+
+
+
+        /*.text-pattern {
+            color:var(--active-text-color);
+            background-color:transparent;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(255, 255, 255, .5) 25px, rgba(255, 255, 255, .5) 50px);
+            background-clip: text;
+            animation: color 50s linear infinite;
+            background-size: 200%;
+        }*/
+
+        @keyframes color {
+            from {
+                background-position: 0% 50%;
+            }
+
+            to {
+                background-position: 100% 50%;
+            }
+        }
+
+        #ambulance-animation {
+            display: none;
+            /* Oculto inicialmente */
+            position: fixed;
+            bottom: 20px;
+            left: 100%;
+            /* Posición inicial en el extremo derecho */
+            z-index: 9999;
+            /* Asegura que se muestre sobre otros contenidos */
+            align-items: center;
+            /* Alinea verticalmente la imagen y el texto */
+            justify-content: center;
+            /* Centra el contenido horizontalmente */
+            white-space: nowrap;
+            /* Evita que el contenido se ajuste a varias líneas */
+        }
+
+        #ambulance-animation img {
+            height: 100px;
+            /* Altura fija para la imagen */
+        }
+
+        #ambulance-animation div {
+            background-color: rgb(71, 56, 243);
+            background-color:transparent;
+            /* Fondo rojo para el mensaje de emergencia */
+            color: white;
+            /* Texto blanco para contrastar con el fondo rojo */
+            padding: 10px;
+            /* Espacio alrededor del texto */
+            border-radius: 5px;
+            /* Bordes redondeados para el contenedor del mensaje */
+            margin-left: 10px;
+            /* Margen izquierdo para separar la imagen del texto */
+        }
+        
+        
+        /* Estilos para los botones */
+
+.btn-custom {
+    background-color:transparent; /* Fondo */
+    color:var(--active-text-color); /* Texto */
+    border-color: var(--gray-dark); 
+    /* border-color: var(--inactive-border-color);  Nueva línea */
+
+}
+
+/* Estilos para los iconos dentro de los botones */
+.btn-custom i {
+    color: var(--icon-color); /* Tinta del icono */
+}
+
+/* Estilos para los botones activos o seleccionados */
+.btn-custom.active,
+.btn-custom:active,
+.btn-custom:focus,
+.btn-custom:hover {
+    background-color:transparent; /* Fondo activo */
+    color: var(--active-text-color); /* Texto activo */
+    border-color: var(--active-border-color); /* Borde activo */
+}
+
+/* Estilos para los iconos dentro de los botones activos o seleccionados */
+.btn-custom.active i,
+.btn-custom:active i,
+.btn-custom:focus i,
+.btn-custom:hover i {
+    color: var(--active-icon-color); /* Tinta del icono activo */
+}
+.btn-custom {
+    background-color:transparent;
+    color: var(--gray-dark);
+    border-color: var(--gray-dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color:transparent;
+    color: var(--gray-dark);
+    border-color: var(--gray-dark);
+}
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
+  .nav-link.btn.btn-custom {
+    /* Propiedades de los botones en general */
+    padding: 0.2rem 0.8rem; /* Padding interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    line-height: 1.0; /* Altura de línea */
+    border-radius: 0.25rem; /* Radio del borde */
+    cursor: pointer; /* Cursor al pasar el mouse */
+    border-color:var(--gray-dark);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Transiciones suaves */
+
+    /* Propiedades específicas de los enlaces de navegación */
+    color:var(--blue-primary); /* Color del texto */
+    background-color:transparent; /* Color de fondo */
+    border-color: var(--gray-light); /* Color del borde */
+    border-style: solid; /* Estilo del borde */
+    border-width: 1px; /* Ancho del borde */
+    display: inline-block; /* Mostrar como un bloque en línea */
+    text-decoration: none; /* Quitar subrayado del enlace */
+}
+
+/* Estilos cuando el botón está activo o seleccionado */
+.nav-link.btn.btn-custom.active,
+.nav-link.btn.btn-custom:focus,
+.nav-link.btn.btn-custom:hover {
+    background-color:var(--active-bg-color); /* Cambio de color de fondo */
+    color:var(--blue-primary); /* Cambio de color del texto */
+    border-color:var(--active-border-color); /* Cambio de color del borde */
+}
+
+
+    </style>
+
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+            <!-- <a class="navbar-brand" href="#" style="white-space: nowrap;">
+
+                <img src="./img/Logo-Home.png" alt="logo" style="height: 3em;"  >Obra Social</a> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: var(--green-dark); white-space: nowrap;">
+                <img src="./img/Logo-Home.png" alt="logo" style="height: 5em;">Obra Social</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class= "nav-link btn btn-custom" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link btn btn-custom" href="#planes">
+                <i class="fas fa-plus"></i> PLANES 
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-custom" href="#ubicacion">
+                <i class="fas fa-map-marker-alt"></i> DÓNDE ESTAMOS </a></li>
+        
+
+        <li class="nav-item">
+            <a class="nav-link btn btn-custom" href="#turnos"><i class="fa-regular fa-clock"></i> TURNOS </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-custom" href="#contacto"><i class="fa-regular fa-envelope"></i> CONTACTO </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link btn btn-custom" href="#ubicacion">
+                <i class="fas fa-user"></i> MEDICOS
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-custom" href="#login">
+                <i class="fas fa-user"></i> ACCEDER
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        <!-- Navegación -->
+
+<!-- 
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary btn-custom" href="#planes">PLANES DE SALUD <i class="fas fa-plus"></i></a>
+
+            <a class="nav-link btn btn-outline-secondary btn-custom" href="#servicios" style="--background-color: var(--gray-light); --text-color: var(--gray-dark);">PLANES DE SALUD <i class="fas fa-plus" style="color: green;"></i></a> -->
+        <!-- </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary btn-custom" href="#acerca" style="background-color: var(--gray-light); color: var(--gray-dark); border-color: var(--inactive-border-color);">DONDE ESTAMOS <i class="fas fa-map-marker-alt"></i></a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary btn-custom" href="#ubicacion" style="--background-color: var(--gray-light); --text-color: var(--gray-dark);">MEDICOS <i class="fas fa-user-md"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary btn-custom" href="#login" style="--background-color: var(--gray-light); --text-color: var(--gray-dark);">ACCEDER <i class="fas fa-user"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary btn-custom" href="#turnos">TURNOS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary btn-custom" href="#contacto">CONTACTO</a>
+        </li>
+    </ul>
+</div> --> 
+<!-- 
+<li class="nav-item">
+    <a class="nav-link btn btn-custom" href="#servicios">
+        <i class="fas fa-plus"></i> PLANES DE SALUD
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link btn btn-custom" href="#acerca">
+        <i class="fas fa-map-marker-alt"></i> DÓNDE ESTAMOS
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link btn btn-custom" href="#ubicacion">
+        <i class="fas fa-user"></i> MEDICOS
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link btn btn-custom" href="#resultados">
+        <i class="fas fa-user"></i> ACCEDER
+    </a>
+</li> -->
+
+
+
+
+
+
+
+<!--         
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary" href="#servicios">PLANES DE SALUD <i class="fas fa-plus" style="color: green;"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary" href="#acerca">DONDE ESTAMOS <i class="fas fa-map-marker-alt"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary" href="#ubicacion">MEDICOS <i class="fas fa-user-md"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-secondary" href="#resultados">ACCEDER <i class="fas fa-user"></i></a>
+        </li> -->
+
+
+        
+
+
+
+            <!-- Navegación
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#inicio">Buscar...</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">PLANES DE SALUD/a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#acerca">DONDE ESTAMOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ubicacion">MEDICOS</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resultados">ACCEDER</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#turnos">TURNOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">CONTACTO</a>
+                    </li>
+
+
+                </ul>
+            </div> -->
+
+        </div>
+
+        <!-- <div class="info-imp">URGENCIAS (011) 4444 8888 | 0810-333- 4444</div> -->
+    </nav>
+
+    <div id="ambulance-animation" style="display: none; position: fixed; top: 20px; left: 100%; z-index: 9999;">
+        <img src="./img/Ambulancia.png" alt="Ambulancia" style="height: 100px;">
+        <div style="background: rgb(34, 43, 202); color: white; padding: 10px; border-radius: 5px;">
+            ¡Llame a emergencias! (011) 4444 8888 | 0810-333-4444
+        </div>
+    </div>
+
+
+    <!-- <div id="ambulance-animation" style="display: none; position: fixed; bottom: 20px; left: -300px; z-index: 9999;">
+    <img src="./img/Ambulancia.png" alt="Ambulancia" style="height: 100px;">
+    <div style="background: red; color: white; padding: 10px; border-radius: 5px;">
+        ¡Llame a emergencias! (011) 4444 8888 | 0810-333-4444
+    </div>
+</div> -->
+
+    <!-- <div class="info-imp">URGENCIAS (011) 4444 8888 | 0810-333- 4444</div> -->
+
+    <div class="jumbotron">
+        <!-- Sección Inicio --><!-- Carousel -->
+        <div id="inicio" class="container mt-5">
+            <!-- <h1>Bienvenido al Sitio Médico</h1>         -->
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="./img/medicina-prepaga.jpeg" alt="First slide">
+                    <!-- Asegúrate de ajustar la ruta de las imágenes -->
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Especialidad 1</h5>
+                        <p>Descripción breve de la especialidad 1.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="./img/medicina-interna.jpg.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Especialidad 2</h5>
+                        <p>Descripción breve de la especialidad 2.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="./img/Vacunación-bebe.jpeg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Especialidad 3</h5>
+                        <p>Descripción breve de la especialidad 3.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Sección Acerca de -->
+    <div id="acerca" class="container mt-5">
+        <!-- <h2>Acerca de Nosotros</h2>-->
+    </div>
+    <!-- Doctor Cards -->
+    <div class="container my-5">
+        <h2 class="mb-4">Nuestros Doctores</h2>
+        <div class="row">
+            <!-- Tarjeta de Sigmund Freud -->
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img class="card-img-top" src="./img/Sigmund_Freud.jpg" alt="Sigmund Freud">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Sigmund Freud</h5>
+                        <p class="card-text">Especialista en psicoanálisis. Fundador del psicoanálisis, una disciplina
+                            que se centra en el inconsciente y sus efectos sobre el comportamiento humano.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Tarjeta de Hipócrates -->
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img class="card-img-top" src="./img/hipocrates.jpg" alt="Hipócrates">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Hipócrates</h5>
+                        <p class="card-text">Considerado el "Padre de la Medicina Moderna". Enfoque en la medicina
+                            preventiva y la importancia de la ética médica.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Tarjeta de Joseph Lister -->
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img class="card-img-top" src="./img/lister.jpg" alt="Joseph Lister">
+                    <div class="card-body">
+                        <h5 class="card-title">Dr. Joseph Lister</h5>
+                        <p class="card-text">Pionero en técnicas antisépticas. Introdujo el uso del fenol como
+                            desinfectante en las salas quirúrgicas, lo que redujo significativamente las infecciones
+                            postoperatorias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="jumbotron"> <!-- Sección de Resultados -->
+        <section id="resultados" class="container mt-5">
+            <h2>Resultados de estudios médicos</h2>
+            <form id="searchForm">
+                <div class="form-group">
+                    <label for="especialidad">Especialidad:</label>
+                    <select class="form-control" id="especialidad">
+                        <option value="">Seleccione una Especialidad</option>
+                        <option value="cardiologia">Cardiología</option>
+                        <option value="dermatologia">Dermatología</option>
+                        <option value="neurologia">Neurología</option>
+                        <option value="pediatria">Pediatría</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="buscarResultados()">Buscar</button>
+            </form>
+
+            <!-- Aquí se mostrarán los resultados -->
+            <div id="resultadosContainer" class="mt-4">
+                <!-- Los resultados se insertarán aquí dinámicamente -->
+            </div>
+        </section>
+
+        <script>
+            function buscarResultados() {
+                var especialidad = document.getElementById('especialidad').value;
+                var resultadosContainer = document.getElementById('resultadosContainer');
+
+                // Aquí deberías realizar la búsqueda de los datos reales, posiblemente haciendo una solicitud a un servidor
+                // A continuación, se muestra un ejemplo estático para ilustrar cómo podrían aparecer los resultados
+                if (especialidad) {
+                    resultadosContainer.innerHTML = `<h3>Resultados para ${especialidad}</h3>
+                                         <div class="card">
+                                             <div class="card-body">
+                                                 <h5 class="card-title">Estudio de ${especialidad}</h5>
+                                                 <p class="card-text">Detalles del estudio realizado el 01/01/2024.</p>
+                                                 <a href="#" class="btn btn-primary">Ver más</a>
+                                             </div>
+                                         </div>`;
+                } else {
+                    resultadosContainer.innerHTML = '<p>Por favor seleccione una especialidad para buscar los resultados.</p>';
+                }
+            }
+        </script>
+    </div>
+
+    <!-- Sección con Jumbotron -->
+    <div id="servicios" class="jumbotron"
+        style="background-image: url('./img/especialidades.jpg'); background-size: cover; background-position: center; min-height: 400px; color: white;">
+    </div>
+
+    <div class="container">
+        <!-- <h1 class="display-4">Especialidades Médicas</h1> -->
+        <p class="lead">Selecciona las especialidades de tu interés para más información.</p>
+    </div>
+    <!-- Lista de Especialidades en cuatro columnas -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <ul class="list-unstyled">
+                    <li><input type="checkbox"> Medicina Familiar</li>
+                    <li><input type="checkbox"> Medicina Interna</li>
+                    <li><input type="checkbox"> Endocrinología</li>
+                    <li><input type="checkbox"> Pediatría</li>
+                    <li><input type="checkbox"> Gineco obstetricia</li>
+                    <li><input type="checkbox"> Medicina física y rehabilitación</li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <ul class="list-unstyled">
+                    <li><input type="checkbox"> Cirugía</li>
+                    <li><input type="checkbox"> Psiquiatría</li>
+                    <li><input type="checkbox"> Cardiología</li>
+                    <li><input type="checkbox"> Dermatología</li>
+                    <li><input type="checkbox"> Gastroenterología</li>
+                    <li><input type="checkbox"> Medicina Intensiva</li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <ul class="list-unstyled">
+                    <li><input type="checkbox"> Infectología</li>
+                    <li><input type="checkbox"> Nefrología</li>
+                    <li><input type="checkbox"> Oftalmología</li>
+                    <li><input type="checkbox"> Otorrinolaringología</li>
+                    <li><input type="checkbox"> Neumología</li>
+                    <li><input type="checkbox"> Urología</li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <ul class="list-unstyled">
+                    <li><input type="checkbox"> Neurología</li>
+                    <li><input type="checkbox"> Radiología</li>
+                    <li><input type="checkbox"> Anestesiología</li>
+                    <li><input type="checkbox"> Oncología</li>
+                    <li><input type="checkbox"> Patología</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+
+    <!-- Sección de Contacto -->
+    <div class="jumbotron">
+        <h1 class="display-4">¡Bienvenido a nuestro sitio!</h1>
+        <p class="lead">Gracias por ponerse en contacto con nosotros, por favor su pregunta no molesta</p>
+        <hr class="my-4">
+        <section id="contacto" class="container mt-5">
+            <!-- <h2>Contacto</h2> -->
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto:</label>
+                    <input type="text" class="form-control" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label>Método de contacto preferido:</label>
+                    <div>
+                        <input type="radio" id="contactEmail" name="contactMethod" value="Email" checked>
+                        <label for="contactEmail">Email</label>
+                        <input type="radio" id="contactPhone" name="contactMethod" value="Phone">
+                        <label for="contactPhone">Teléfono</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea class="form-control" id="message" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="service">Servicio:</label>
+                    <select class="form-control" id="service" required>
+                        <option>Consulta General</option>
+                        <option>Cita Médica</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </section>
+        <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Aprende más</a> -->
+    </div>
+
+    <!-- Script para la validación del formulario -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Detiene la acción predeterminada para revisar la validación
+            var isValid = true; // Bandera para la validación del formulario
+
+            // Lista de todos los campos obligatorios
+            var fields = ['name', 'email', 'subject', 'message', 'service'];
+
+            // Verificar que cada campo no esté vacío
+            fields.forEach(function (field) {
+                var input = document.getElementById(field);
+                if (!input.value) {
+                    isValid = false; // Si algún campo está vacío, marca el formulario como no válido
+                    alert('Por favor complete el campo ' + field); // Alerta al usuario sobre el campo obligatorio
+                }
+            });
+
+            if (isValid) {
+                this.submit(); // Si todo es válido, envía el formulario
+            }
+        });
+    </script>
+
+
+
+
+
+    <div class="jumbotron">
+        <section id="ubicacion" class="container">
+            <div id="googleMap" style="width:100%;height:max-content;"></div>
+            <script>
+                function myMap() {
+                    var mapProp = {
+                        center: new google.maps.LatLng(51.508742, -0.120850),
+                        zoom: 5,
+                    };
+                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                }
+
+            </script>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.129856876812!2d-58.40592278476148!3d-34.611995280455346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3e1bcb97bd%3A0x71947b863a9ab2c4!2sObra%20Social!5e0!3m2!1ses!2sar!4v1648999914695!5m2!1ses!2sar"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </div>
+
+
+    <div class="jumbotron">
+        <footer class="container mt-5">
+            <div class="row">
+                <!-- Columna de contacto -->
+                <div class="col-md-6">
+                    <div id="contacto">
+                        <ul>
+                            <br>
+
+                            <h2>Contacto</h2>
+                            <li><i class="fa-solid fa-phone fa-fw" style="color: #ffffff;"></i> Asociate | 0810-555-4444
+                            </li>
+                            <li><i class="fa-solid fa-phone fa-fw" style="color: #ffffff;"></i> Atencion Al Socio |
+                                0810-555-4444</li>
+                            <li><i class="fa-brands fa-whatsapp fa-fw" style="color: #ffffff;"></i> WhatsApp | +54 9
+                                11-2222-3333</li>
+                            <li><i class="fa-solid fa-location-dot fa-fw" style="color: #ffffff;"></i> Av.Ejemplo 1124
+                            </li>
+
+                        </ul>
+                        <ul style="display: flex; align-items: center; list-style: none;">
+                            <li><a href="">
+                                    <i class="fa-brands fa-instagram fa-2x ico" style="color: #ff0040;"></i>
+                                </a></li>
+                            <li><a href="">
+                                    <i class="fa-brands fa-facebook fa-2x ico" style="color: #1055cb;"></i>
+                                </a></li>
+                            <li><a href="">
+                                    <i class="fa-brands fa-linkedin fa-2x ico" style="color: #74C0FC;"></i>
+                                </a></li>
+                            <li><a href="">
+                                    <i class="fa-regular fa-envelope fa-2x ico" style="color: #696969;"></i>
+                                </a></li>
+                        </ul>
+                    </div>
+                    <div class="text-center p-3">
+                        © 2024 Sitio Médico. Todos los derechos reservados.
+                    </div>
+                </div>
+                <!-- Columna de turnos -->
+                <div class="col-md-6">
+                    <div id="turnos">
+                        <section>
+                            <h3>Agenda tu Cita Médica</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="specialty">Especialidad:</label>
+                                    <select class="form-control" id="specialty">
+                                        <option>Cardiología</option>
+                                        <option>Dermatología</option>
+                                        <option>Pediatría</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Fecha:</label>
+                                    <input type="date" class="form-control" id="date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="time">Hora:</label>
+                                    <input type="time" class="form-control" id="time">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/popper.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        window.onload = function() {
+            var ambulance = document.getElementById('ambulance-animation');
+            ambulance.style.display = 'flex'; // Asegúrate de que sea visible.
+            var pos = window.innerWidth; // Start at the right side of the window.
+            var interval = setInterval(frame, 5); // Adjust time for smoother animation.
+        
+            function frame() {
+                if (pos <= -ambulance.offsetWidth) { // Ensure it's fully out of view
+                    clearInterval(interval);
+                } else {
+                    pos--;
+                    ambulance.style.right = pos + 'px';
+                }
+            }
+        };
+        
+    
+            function showAmbulance() {
+            const ambulance = document.getElementById('ambulance-animation');
+            ambulance.style.display = 'flex'; // Hace visible la ambulancia
+            ambulance.style.left = '100%'; // Posición inicial en el extremo derecho
+            ambulance.style.transition = 'left 5s linear'; // Transición suave hacia la izquierda
+        
+            setTimeout(() => {
+                ambulance.style.left = '-600px'; // Posición final fuera de la pantalla en el lado izquierdo
+            }, 100);
+        }
+
+            // Para iniciar la animación cuando se carga la página
+            window.onload = function() {
+                showAmbulance();
+        };
+    </script> 
+
+</body>
+
+</html>

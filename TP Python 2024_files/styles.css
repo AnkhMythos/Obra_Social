@@ -1,0 +1,183 @@
+/* Estilos generales */
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 1rem;
+    height: 100%;
+    }
+body, header, main, footer {
+    border: 3px color(srgb green);
+    min-height: 50px;
+    margin: 0.5rem;
+    min-width: 400px;
+}
+main {
+    min-height: 200px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c0e0ed;
+    padding: 20px;
+}
+
+.navbar-left img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.navbar-left span {
+    font-size: 32px;
+    font-weight: 800;
+    color: #78B147;
+}
+
+.navbar-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-right ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.navbar-right ul li a {
+    text-decoration: none;
+    color: #78B147;
+    font-weight: bold;
+}
+
+.navbar-right ul li a:hover {
+    color: #5A8E33;
+}
+
+/* Estilos para la sección principal */
+.main-section {
+    background-color: #E8E8E8;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.section-content h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.section-content p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.section-content .btn {
+    display: inline-block;
+    background-color: #78B147;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.section-content .btn:hover {
+    background-color: #5A8E33;
+}
+
+/* Estilos para la sección de contacto */
+.contact-section {
+    background-color: #4A4A4A;
+    color: #fff;
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info ul li {
+    margin-bottom: 20px;
+}
+
+.subscription-form {
+    max-width: 400px;
+}
+
+.subscription-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.subscription-form input,
+.subscription-form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.subscription-form input[type="text"],
+.subscription-form input[type="email"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.subscription-form button {
+    background-color: #78B147;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.subscription-form button:hover {
+    background-color: #5A8E33;
+}
+ul.icon-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.icon-list li {
+    margin-bottom: 10px;
+}
+
+ul.icon-list li img {
+    width: 24px; /* Cambia el tamaño según sea necesario */
+    height: 24px; /* Cambia el tamaño según sea necesario */
+    margin-right: 10px; /* Añade un margen a la derecha para separar la imagen del texto */
+}
+ul.icon-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.icon-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+ul.icon-list li img {
+    width: 24px; /* Cambia el tamaño según sea necesario */
+    height: 24px; /* Cambia el tamaño según sea necesario */
+    margin-right: 10px; /* Añade un margen a la derecha para separar la imagen del texto */
+}

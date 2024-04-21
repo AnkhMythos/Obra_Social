@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Obra Social</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9e4e93b905.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/vnd.microsoft.icon" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+<style>
+        :root {
+            
+            --gray-light: #f0f0f0; /* Color de fondo */
+            --gray-dark: #333; /* Color de texto */
+            --icon-color: #000; /* Color de icono */
+            --inactive-border-color: #272323; /* Color de borde inactivo */
+            --active-bg-color: #cbedb6; /* Color de fondo activo */
+            --inactive-bg-color: #b9e89c; /* Color de fondo activo */
+            --active-text-color: #241e1e; /* Color de texto activo */
+            --active-border-color: #666; /* Color de borde activo */
+            --active-icon-color: #000; /* Color de icono activo */
+            --blue-primary: #007bff;
+            --blue-light: #67c5ed;
+            --gray-light: #f8f9fa;
+            --gray-dark: #1a1f23;
+            --green-dark: #11c02b;            
+        }
+        body {
+            margin: 0;
+            padding: 0;
+           /* overflow-x: hidden;  Evitar la barra de desplazamiento horizontal */
+        }
+        
+        header {
+            width: 100%;
+            height: 112px;
+            background-color: #f0f0f0; /* Color de fondo del header */
+            position: fixed; /* El header se mantiene fijo en la parte superior */
+            top: 0; /* Se mantiene pegado arriba */
+            left: 0;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color:transparent;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar{
+            background-color:transparent;
+            
+            color: var(--gray-dark);
+        }
+
+        footer {
+            background-color:transparent;
+            color:var(--blue-primary);
+        }
+
+        .btn-primary {
+            background-color:transparent;
+            border-color: var(--blue-light);
+            color:var(--active-text-color)
+        }
+
+        .jumbotron {
+            background-color:transparent;
+            color: var(--gray-dark);
+        }
+
+        section {
+            padding: 10px 0;
+        }
+
+        .card {
+            height: 100%;           /* Asegura que todas las tarjetas tengan la misma altura */
+        }
+
+        .card-img-top {
+            height: fit-content;            /* Altura fija para todas las imágenes */
+            object-fit: cover;            /* Asegura que la imagen cubra el espacio disponible, recortándose según sea necesario */
+            width: 100%;            /* Asegura que la imagen cubra todo el ancho de la tarjeta */
+        }
+
+        ul.icon-list li img {
+            width: 24px;            /* Cambia el tamaño según sea necesario */
+            height: 24px;            /* Cambia el tamaño según sea necesario */
+            margin-right: 10px;            /* Añade un margen a la derecha para separar la imagen del texto */
+        }
+
+        /* Aplicar estilos a cada ítem de la lista, excepto al último para evitar margen derecho excesivo */
+        li:not(:last-child) {
+            margin-right: 20px;            /* Ajusta la separación entre íconos */
+        }
+
+        /* Asegura que los íconos sean más grandes usando la clase de FontAwesome para xem el tamaño */
+        .ico {
+            font-size: 3em;
+        }
+
+        @media (max-width: 991px) {
+            #navbarNavDropdown {
+                position: absolute;
+                right: 10;
+                left: auto;
+                background-color:transparent;
+                /* Cambia esto según tu color de fondo */
+                border-radius: 0 0 0.25rem 0.25rem;
+                padding-left: 20px;
+                /* Añade padding en el lado izquierdo */
+            }
+
+            .navbar-nav {
+                align-items: flex-start;
+                
+                /* Asegúrate de que los elementos del menú no estén centrados */
+            }
+
+            .navbar-nav .nav-link {
+                padding-left: 30px;
+                /* Agrega espacio a la izquierda */
+                padding-right: 30px;
+                /* Agrega espacio a la derecha si es necesario */
+            }
+
+        }
+
+
+
+        @keyframes color {
+            from {
+                background-position: 0% 50%;
+            }
+
+            to {
+                background-position: 100% 50%;
+            }
+        }
+
+        #ambulance-animation {
+            display: none;
+            /* Oculto inicialmente */
+            position: fixed;
+            bottom: 20px;
+            left: 100%;
+            /* Posición inicial en el extremo derecho */
+            z-index: 9999;
+            /* Asegura que se muestre sobre otros contenidos */
+            align-items: center;
+            /* Alinea verticalmente la imagen y el texto */
+            justify-content: center;
+            /* Centra el contenido horizontalmente */
+            white-space: nowrap;
+            /* Evita que el contenido se ajuste a varias líneas */
+        }
+
+        #ambulance-animation img {
+            height: 100px;
+            /* Altura fija para la imagen */
+        }
+
+        #ambulance-animation div {
+            background-color: rgb(71, 56, 243);
+            background-color:transparent;
+            /* Fondo rojo para el mensaje de emergencia */
+            color: white;
+            /* Texto blanco para contrastar con el fondo rojo */
+            padding: 10px;
+            /* Espacio alrededor del texto */
+            border-radius: 5px;
+            /* Bordes redondeados para el contenedor del mensaje */
+            margin-left: 10px;
+            /* Margen izquierdo para separar la imagen del texto */
+        }
+        
+        
+        /* Estilos para los botones */
+
+.btn-custom {
+    background-color:transparent; /* Fondo */
+    color:var(--active-text-color); /* Texto */
+    border-color: var(--gray-dark); 
+    /* border-color: var(--inactive-border-color);  Nueva línea */
+
+}
+
+/* Estilos para los iconos dentro de los botones */
+.btn-custom i {
+    color: var(--icon-color); /* Tinta del icono */
+}
+
+/* Estilos para los botones activos o seleccionados */
+.btn-custom.active,
+.btn-custom:active,
+.btn-custom:focus,
+.btn-custom:hover {
+    background-color:transparent; /* Fondo activo */
+    color: var(--active-text-color); /* Texto activo */
+    border-color: var(--active-border-color); /* Borde activo */
+}
+
+/* Estilos para los iconos dentro de los botones activos o seleccionados */
+.btn-custom.active i,
+.btn-custom:active i,
+.btn-custom:focus i,
+.btn-custom:hover i {
+    color: var(--active-icon-color); /* Tinta del icono activo */
+}
+.btn-custom {
+    background-color:transparent;
+    color: var(--gray-dark);
+    border-color: var(--gray-dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color:transparent;
+    color: var(--gray-dark);
+    border-color: var(--gray-dark);
+}
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
+  .nav-link.btn.btn-custom {
+    /* Propiedades de los botones en general */
+    padding: 0.2rem 0.8rem; /* Padding interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    line-height: 1.0; /* Altura de línea */
+    border-radius: 0.25rem; /* Radio del borde */
+    cursor: pointer; /* Cursor al pasar el mouse */
+    border-color:var(--gray-dark);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Transiciones suaves */
+
+    /* Propiedades específicas de los enlaces de navegación */
+    color:var(--blue-primary); /* Color del texto */
+    background-color:transparent; /* Color de fondo */
+    border-color: var(--gray-light); /* Color del borde */
+    border-style: solid; /* Estilo del borde */
+    border-width: 1px; /* Ancho del borde */
+    display: inline-block; /* Mostrar como un bloque en línea */
+    text-decoration: none; /* Quitar subrayado del enlace */
+}
+
+/* Estilos cuando el botón está activo o seleccionado */
+.nav-link.btn.btn-custom.active,
+.nav-link.btn.btn-custom:focus,
+.nav-link.btn.btn-custom:hover {
+    background-color:var(--active-bg-color); /* Cambio de color de fondo */
+    color:var(--blue-primary); /* Cambio de color del texto */
+    border-color:var(--active-border-color); /* Cambio de color del borde */
+}
+
+
+    
+        
+     
+        iframe {
+            width: 100%;
+            margin-top: 120px; /* Margen superior */
+            height: 537px; /* Altura inicial */            
+            display: block; /* Alinear al centro */
+        }
+       
+</style>
+
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+           
+                
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#carousel" onclick="cargarHTML('carousel.html')" style="color: var(--green-dark); white-space: nowrap;">
+                    <img src="./img/Logo-Home.png" alt="logo" style="height: 5em;">Obra Social</a>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class= "nav-link btn btn-custom" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </li>
+    
+            <!-- <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#planes">
+                    <i class="fas fa-plus"></i> PLANES 
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#ubicacion">
+                    <i class="fas fa-map-marker-alt"></i> DÓNDE ESTAMOS </a></li>
+            
+    
+            <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#turnos"><i class="fa-regular fa-clock"></i> TURNOS </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#contacto"><i class="fa-regular fa-envelope"></i> CONTACTO </a>
+            </li>
+    
+            <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#ubicacion">
+                    <i class="fas fa-user"></i> MEDICOS
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#login">
+                    <i class="fas fa-user"></i> ACCEDER
+                </a>
+            </li>
+        </ul>
+    </div> -->
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="nav-link btn btn-custom" type="button" onclick="cargarHTML('planes_salud.html')"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div> -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-custom" href="#planes" onclick="cargarHTML('planes_salud.html')">
+                        <i class="fas fa-plus"></i> PLANES 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-custom" href="#ubicacion" onclick="cargarHTML('ubicacion.html')">
+                        <i class="fas fa-map-marker-alt"></i> DÓNDE ESTAMOS 
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#turnos" onclick="cargarHTML('turnos.html')">
+                    <i class="fa-regular fa-clock"></i> TURNOS </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#contacto" onclick="cargarHTML('contacto.html')"> 
+                    <i class="fa-regular fa-envelope"></i> CONTACTO </a>
+            </li>
+    
+            <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#medicos" onclick="cargarHTML('medicos.html')">
+                    <i class="fas fa-user"></i> MEDICOS
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-custom" href="#login" onclick="cargarHTML('login.html')">
+                    <i class="fas fa-user"></i> ACCEDER
+                </a>
+            </li>
+        </ul>
+    </div> 
+                <!-- Agrega más botones aquí con sus respectivos enlaces y la función cargarHTML -->
+            </ul>
+        </div>
+    </nav>
+
+<!-- IFrame -->
+
+<div>
+    <iframe id="iframe" src="carousel.html" frameborder="0"></iframe>
+</div>
+
+<!-- <div>
+    <iframe id="iframe" src="" frameborder="0"></iframe>
+</div> -->
+
+<!-- <script>
+    function cargarPagina(url) {
+        document.getElementById('iframe').src = url;
+    }
+</script> -->
+
+<!-- IFrame -->
+<!-- <div>
+    <iframe id="iframe" src="./planes_salud.html" frameborder="0"></iframe>
+</div> -->
+
+    <!-- <div>
+        <IFrame 
+        <iframe src="./planes_salud.html" frameborder="0"></iframe>
+    </div> -->
+    
+    <!-- Footer -->
+    <footer>
+    </footer>
+
+    <!-- <script>
+        function cargarHTML(url) {
+            document.getElementById('iframe').src = url;
+        }
+    </script> -->
+    <script>
+        function cargarHTML(url = './carousel.html') {
+            document.getElementById('iframe').src = url;
+        }
+    </script>
+
+
+<!-- Enlaces a Bootstrap y Font Awesome (si los estás usando) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

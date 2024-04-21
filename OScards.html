@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+        .grid-container {
+            display: flex;
+            justify-content: center;
+            /* Centra horizontalmente */
+            align-items: center;
+            /* Centra verticalmente */
+            height: 100vh;
+            /* Establece la altura al 100% del viewport */
+        }
+
+        .grid-item {
+            width: 100%;
+            /* Ajusta el ancho según sea necesario */
+        }
+
+        .card {
+            margin-bottom: 20px;
+            /* Agrega espacio entre las tarjetas */
+        }
+
+        .card {
+            width: 20rem;
+            margin-right: 20px;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 20% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+        }
+
+        /* Modal Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="grid-container">
+
+        <div class="grid-item">
+
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card">
+                        <img src="./img/consulta.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Plan Vital+</h5>
+                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt quis
+                                veritatis eligendi aspernatur repellat delectus voluptatibus laboriosam fuga animi
+                                facilis similique, incidunt expedita placeat deserunt recusandae iste! Amet, dolorum
+                                iusto.</p>
+                            <!-- <a href="#" class="btn btn-primary">Detalles</a> -->
+                            <!-- <a> <button id="openModalBtn">Detalles del Plan</button> </a> -->
+                            <!-- <a href="#" class="btn btn-primary" id="openModalBtn">Detalles</a> -->
+                            <a href="#" class="btn btn-primary" id="openModalBtn1">Detalles Plan Básico</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm">
+                    <div class="card">
+                        <img src="./img/osculta.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <!-- <a href="#" class="btn btn-primary">Detalles</a> -->
+                            <!-- <a href="#" class="btn btn-primary" id="openModalBtn">Detalles</a> -->
+                            <a href="#" class="btn btn-primary" id="openModalBtn2">Detalles Plan Estándar</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div class="col-sm">
+                    <div class="card">
+                        <img src="./img/pediatria.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <!-- <a href="#" class="btn btn-primary">Detalles</a> -->
+                            <a href="#" class="btn btn-primary" id="openModalBtn3">Detalles Plan Premium</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+     <div id="myModal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Descripción del Plan Vital+</h2>
+            <p>
+                El Plan Vital+ es la opción ideal para estar protegido ante emergencias y urgencias médicas en todo
+                momento. Contamos con una amplia red de médicos y centros especializados, atención de guardia en línea y
+                descuentos de hasta el 40% en farmacias para respaldar tu bienestar diario. El complemento perfecto para
+                cuidar tu salud.
+            </p>
+            <h3>DETALLE DEL PLAN</h3>
+            <ul>
+                <li>Cobertura de emergencias y urgencias médicas las 24 horas.</li>
+                <li>Consulta médica en línea con especialistas mediante videollamada UMA.</li>
+                <li>Consulta programada con todas las especialidades a través de videollamada UMA.</li>
+                <li>Descuentos de hasta el 40% en farmacias con límite anual.</li>
+                <li>Gestión personalizada de tu salud.</li>
+            </ul>
+            <h3>Con copago o tarifa preferencial:</h3>
+            <ul>
+                <li>Servicio médico a domicilio.</li>
+                <li>Consultas con especialistas en nuestros centros médicos de Emergencias.</li>
+                <li>Atención médica especializada según la cartilla.</li>
+                <li>Procedimientos ambulatorios de baja complejidad.</li>
+            </ul>
+        </div>
+        </div>
+
+        <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Descripción del Plan Estándar</h2>
+                <p>Servicios que necesitas en el día a día para resolver urgencias y emergencias médicas. Con el Plan
+                    Estándar te ofrecemos el combo de servicios de salud que se adapta a tu bolsillo para que no te
+                    quedes sin cobertura de salud. Descuentos en farmacias, prácticas ambulatorias y estudios de
+                    diagnóstico con la tasa preferencial más baja.</p>
+
+                <h3>DETALLE DEL PLAN</h3>
+                <ul>
+                    <li>Emergencias y urgencias médicas las 24 hs.</li>
+                    <li>Videollamada UMA con médico de guardia</li>
+                    <li>Videollamada UMA consulta programada con todas las especialidades</li>
+                    <li>Consultas con especialistas en centros médicos Emergencias</li>
+                    <li>Consultas médicas con especialistas en cartilla (Clínico y Pediatría)</li>
+                    <li>Descuentos en farmacias de hasta 40% con tope anual</li>
+                    <li>Gestor de salud</li>
+                    <li>Club Emergencias</li>
+                </ul>
+
+                <p><strong>Con copago o arancel preferencial:</strong></p>
+                <ul>
+                    <li>Médico a domicilio</li>
+                    <li>Consultas con especialistas en centros médicos Emergencias</li>
+                    <li>Consultas médicas con especialistas en cartilla</li>
+                    <li>Estudios de diagnóstico y laboratorio</li>
+                    <li>Prácticas ambulatorias de baja complejidad en Centros médicos Emergencias</li>
+                    <li>Kinesiología</li>
+                    <li>Salud Mental</li>
+                </ul>
+
+                <p>*Los tiempos aquí establecidos se ofrecen bajo condiciones normales de circulación vehicular y
+                    demanda del servicio. No incluye situaciones de urgencia y/o emergencias. No incluye eventos como
+                    huelgas generales, apagones generalizados, cortes espontáneos de calle y/o cualquier otro hecho
+                    considerado como de caso fortuito y/o fuerza mayor. No incluye el uso indebido, doloso o fraudulento
+                    del servicios. IHSA S.A se reserva el derecho a modificaciones.</p>
+            </div>
+        </div>
+
+        <div id="myModal3" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Descripción del Plan Premium</h2>
+                <p>
+                    El Plan Premium te ofrece el máximo nivel de cobertura para cuidar tu salud todos los días,
+                    garantizando la mejor atención médica sin descuidar tu bolsillo. Cambia a Emergencias Salud y obtén
+                    servicios médicos de calidad con la menor cantidad de copagos.
+                </p>
+                <h3>DETALLE DEL PLAN</h3>
+                <ul>
+                    <li>Emergencias y urgencias médicas las 24 horas.</li>
+                    <li>Médico a domicilio.</li>
+                    <li>Consulta médica en línea con especialistas mediante videollamada UMA.</li>
+                    <li>Consulta programada con todas las especialidades a través de videollamada UMA.</li>
+                    <li>Consultas con especialistas en nuestros centros médicos de Emergencias, con turnos disponibles
+                        los 7 días de la semana y atención los sábados.</li>
+                    <li>Consultas médicas con especialistas según la cartilla de servicios.</li>
+                    <li>Estudios de diagnóstico y laboratorio.</li>
+                    <li>Prácticas ambulatorias de baja complejidad en Centros médicos Emergencias.</li>
+                    <li>Descuentos de hasta 40% en farmacias con tope anual.</li>
+                    <li>Seguro por internación y cirugía.</li>
+                    <li>Odontología Integral.</li>
+                    <li>Chequeo preventivo anual que incluye consultas y estudios.</li>
+                    <li>Gestor de salud para consultas y trámites.</li>
+                    <li>Traslados sanitarios.</li>
+                    <li>Servicio de cuidadores.</li>
+                    <li>Acceso al Club Emergencias.</li>
+                </ul>
+                <h3>Con copago o arancel preferencial:</h3>
+                <ul>
+                    <li>Enfermería a domicilio.</li>
+                    <li>Laboratorio a domicilio.</li>
+                    <li>Kinesiología.</li>
+                    <li>Atención en salud mental.</li>
+                </ul>
+                <p>*Los tiempos aquí establecidos se ofrecen bajo condiciones normales de circulación vehicular y
+                    demanda del servicio. No incluye situaciones de urgencia y/o emergencias. No incluye eventos como
+                    huelgas generales, apagones generalizados, cortes espontáneos de calle y/o cualquier otro hecho
+                    considerado como de caso fortuito y/o fuerza mayor. No incluye el uso indebido, doloso o fraudulento
+                    del servicio. IHSA S.A se reserva el derecho a modificaciones.</p>
+            </div>
+        </div 
+
+       
+
+     
+
+                
+
+                <script>
+                    $(document).ready(function () {
+                        $("#openModalBtn1").click(function () {
+                            $("#myModal1").show();
+                        });
+                        $("#openModalBtn2").click(function () {
+                            $("#myModal2").show();
+                        });
+                        $("#openModalBtn3").click(function () {
+                            $("#myModal3").show();
+                        });
+                    });
+                </script> 
+
+                <script>
+
+
+                    // Obtener la referencia al modal y al botón de cierre
+                    var modal = document.getElementById("myModal3");
+                    var closeBtn = modal.querySelector(".close");
+
+                    // Función para cerrar el modal
+                    function closeModal() {
+                        modal.style.display = "none";
+                    }
+
+                    // Cerrar el modal al hacer clic en el botón de cierre
+                    closeBtn.addEventListener("click", closeModal);
+
+                    // Cerrar el modal al hacer clic fuera del contenido del modal
+                    window.addEventListener("click", function (event) {
+                        if (event.target == modal) {
+                            closeModal();
+                        }
+                    });
+
+
+
+
+                </script>
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                <script src="script.js"></script>
+</body>
+
+</html>

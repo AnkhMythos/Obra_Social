@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal con Iframe</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+     <link rel="stylesheet" href="./css/styleTP.css"> 
+    <!-- <script src="https://kit.fontawesome.com/9e4e93b905.js" crossorigin="anonymous"></script> -->
+    <title>Obra Social</title>
+
+<style>
+
+    .footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas */
+    }
+    
+    .column {
+        padding: 20px;
+    }
+    
+    .Contact-me ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .Contact-me li {
+        margin-bottom: 10px;
+    }
+    
+    .form-box {
+        border-left: 1px solid #fff;
+        padding-left: 20px;
+    }
+    
+    .form-info {
+        margin-bottom: 10px;
+    }
+    
+    .form-footer {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-footer input,
+    .form-footer button {
+        margin-bottom: 10px;
+    }
+    
+    .iframe-container {
+        /* Estilo del contenedor del iframe */
+        margin-top: 50px; /* Espacio entre el header y el iframe */
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* Proporción de aspecto para hacer el iframe responsive */
+    }
+    
+    .header {
+        /* background-color: white; */
+        display: grid;
+        grid-template-columns: 120px 200px 200px 1fr;
+        position: fixed; 
+        top: 0; 
+        left: 0;
+        width: 100%;
+        /* z-index: 1000; Asegura que el encabezado aparezca por encima de otros elementos */
+    } 
+    
+    .iframe-container iframe {
+        /* Estilo del iframe */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 200;
+        left: 0;
+    }
+    
+
+    .iframe-container {
+        margin-top: 100px; /* Ajusta el valor según sea necesario */
+    }
+
+    .iframe-container {
+        margin-top: 200px; /* Espacio entre el header y el iframe */
+    }
+    
+    iframe {
+        width: 100%;
+        height: 500px; /* Altura inicial del iframe */
+        border: none; /* Eliminar el borde del iframe */
+    }
+            
+</style> 
+    
+</head>
+
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="">
+                <img src="./img/Logo-Home.png" alt="logo">
+            </a>
+        </div>
+        <div class="contact">
+            <h1>Obra Social
+                <ul>
+                    
+                        <li><a href="">
+                                <i class="fa-brands fa-instagram fa-l ico" style="color: #ff0040;"></i>
+                            </a></li>
+                        <li><a href="">
+                                <i class="fa-brands fa-facebook fa-l ico" style="color: #1055cb;"></i>
+                            </a></li>
+                        <li><a href="">
+                                <i class="fa-brands fa-linkedin fa-l ico" style="color: #74C0FC;"></i>
+                            </a></li>
+                        <li><a href="">
+                                <i class="fa-regular fa-envelope fa-l ico" style="color: #696969;"></i>
+                            </a></li>
+                </h1>
+            </ul>
+        </div>
+        <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" required placeholder="Buscar...">                
+            </a>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                
+                <li><a href="register.html" target="iframe">
+                    <i class="fa-solid fa-user fa-xs" style="color: #ffffff;"></i> Acceder
+                    </a></li>
+                <li><a href="medicos.html" target="iframe">
+                    <i class="fa-solid fa-user" style="color: #ffffff;"></i> Médicos
+                </a></li>
+                <li><a href="donde_estamos.html" target="iframe">
+                    <i class="fa-solid fa-location-dot" style="color: #c51616;"></i> DÓNDE ESTAMOS
+                </a></li>
+                <li><a href="planes_salud.html" target="iframe">
+                    <i class="fa-solid fa-plus" style="color: #63E6BE;"></i> PLANES DE SALUD
+                </a></li>
+            </ul>
+        </nav>
+
+        
+        
+        <!-- <div class="iframe-container">
+            <iframe name="iframe" src="planes_salud.html" frameborder="0"></iframe>
+        </div> -->
+
+
+
+    <!-- </header>
+    <section class="first-section">
+        <div class="info-imp">URGENCIAS (011) 4444 8888 | 0810-333- 4444</div>
+    </section> -->
+    
+    <div class="iframe-container">
+        <iframe id="myIframe" src="" frameborder="0"></iframe>
+    </div>
+
+    <!-- <div class="iframe-container" style="margin-top: 100px;">
+        <iframe src="planes_salud.html" frameborder="0"></iframe>
+    </div> -->
+
+    
+    
+        <!-- Contenido del header -->
+
+    <!-- <header class="header">
+    </header> -->
+    
+    <!-- <div class="iframe-container">
+        <iframe src="planes_salud.html" frameborder="0"></iframe>
+    </div> -->
+    
+    
+
+        
+
+<!--      
+<div>       
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+<iframe src="planes_salud.html" frameborder="0" style="position: absolute; width: 100%; height: 100%;"></iframe>
+</div>
+<iframe src="planes_salud.html" frameborder="0" style="width: 100%; height: 500px;"></iframe> 
+</div> -->
+
+
+
+
+
+    <footer class="footer">
+        <div class="column">
+            <div class="Contact-me">
+                <ul>
+                    <li><i class="fa-solid fa-phone fa-fw" style="color: #ffffff;"></i> Asociate | 0810-555-4444</li>
+                    <li><i class="fa-solid fa-phone fa-fw" style="color: #ffffff;"></i> Centro De Atencion Al Socio | 0810-555-4444</li>
+                    <li><i class="fa-brands fa-whatsapp fa-fw" style="color: #ffffff;"></i> WhatsApp | +54 9 11-2222-3333</li>
+                    <li><i class="fa-solid fa-location-dot fa-fw" style="color: #ffffff;"></i> Av.Ejemplo 1124</li>
+                </ul>
+            </div>
+        </div>
+        <div class="column">
+            <div class="form-box">
+                <div class="form-info">
+                    Para recibir información acerca de ofertas y promociones, por favor, complete el siguiente formulario:
+                </div>
+                <form class="form-footer" action="#">
+                    <input id="name" type="text" required placeholder="Nombre...">
+                    <input id="email" type="email" required placeholder="E-mail...">
+                    <button class="form-button">SUSCRIBIRSE</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Obtener referencia al iframe y a los botones del menú
+const iframe = document.getElementById('myIframe');
+const menuButtons = document.querySelectorAll('.nav-links a');
+
+// Agregar event listener a cada botón del menú
+menuButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+        // Prevenir el comportamiento predeterminado del enlace
+        event.preventDefault();
+        
+        // Obtener la URL asociada con el botón clicado
+        const pageURL = button.getAttribute('data-src');
+        
+        // Establecer la URL del iframe para cargar la página correspondiente
+        iframe.src = pageURL;
+    });
+});
+    </script>
+</body>
+</html>
